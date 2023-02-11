@@ -212,7 +212,7 @@ function saveData()
 	else
 		localStorage.setItem("MatchData", existingData + matchData);
 	document.getElementById("HistoryCSV").value = localStorage.getItem("MatchData");
-	serverSubmit(matchData);
+	//serverSubmit(matchData); Skip server
 }
 
 function savePitData()
