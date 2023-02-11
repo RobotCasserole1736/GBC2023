@@ -1,0 +1,5 @@
+venv
+
+#Important! This needs to be on the gitnore to be sure we don't leak
+# any comments to the public
+scoutDatabase.csv
