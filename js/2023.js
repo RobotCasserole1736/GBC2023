@@ -19,7 +19,7 @@ function common(){
     AutoFormInit()
     TeleFormInit()
     PostMatchFormInit()
-    PitScoutingFormInit()
+    //PitScoutingFormInit()
     initializeQRTable()
 }
 
