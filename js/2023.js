@@ -6,7 +6,6 @@ let checkBoxList=[]
 let multipleChoiceList=[]
 let pitMultipleChoiceList=[]
 
-
 let climbText=["None","Low","Mid","High","Traversal"]
 let driverRatingText = ["Doesn't Drive","Inefficient Driving", "Acceptable Driving", "Drives Well",];
 let defenseRatingText = ["Didn't Defend","Hinders Allies; Inefficient Defense","Does not Hinder Allies; Inefficient Defense","Does not Hinder Allies; Great Defense"]
@@ -23,14 +22,14 @@ function common(){
     initializeQRTable()
 }
 
-
 function AutoFormInit(){
-    addElList("autoScoring_left",PC2Bar("Autonomous","Upper Goal"))
-    addElList("autoScoring_left",[BR])
-    addElList("autoScoring_left",button("undoScore('autonomous');","Undo Score"))
-    addElList("autoScoring_center",PC2Bar("Autonomous","Lower Goal"))
-    addElList("autoScoring_right",title("Tarmac"))
-    addElList("autoScoring_right",tarmacCheckBox("Left Tarmac: ","leftTarmac"))
+    addElList("autoScoring_leftGrid_coneUpperLeft",checkBox("","autonomous_leftGrid_coneUpperLeft"))
+    addElList("autoScoring_coneMiddle",checkBox("","autonomous_leftGrid_coneMiddleLeft"))
+    addElList("autoScoring_coneLower",checkBox("","autonomous_leftGrid_coneLowerLeft"))
+    addElList("autoScoring_coneLower",checkBox("","autonomous_leftGrid_coneLower"))
+    // addElList("autoScoring",button("undoScore('autonomous');","Undo Score"))
+    addElList("autoScoring_inCommunity",title("Community"))
+    addElList("autoScoring_inCommunity",tarmacCheckBox("Stayed in Community: ","leftTarmac"))
 }
 
 function TeleFormInit(){
@@ -106,7 +105,6 @@ function button(onClick, text){
     Div.innerHTML=innerHTML="<button onclick=\""+onClick+"\">"+text+"</button>"
     return [Div]
 }
-
 
 function multipleChoice(TitleIn, id, Choices, isPit){
     Title=document.createElement("H3")

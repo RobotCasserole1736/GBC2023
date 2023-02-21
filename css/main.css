@@ -7,10 +7,22 @@
     margin-top: 15px;
 }
 
-#autoScoring_left {
+#autoScoring_leftGrid_coneUpperLeft {
+    position: absolute;
+    left: 55pt;
+    top: 100pt;
+    fill-opacity: 0;
+    transform: scale(2.5);
+    height: 20px;
+    width: 22px;
+    /* background-color: #ffff33; */
+    background: #ffff33;
+}
+
+/* #autoScoring_left {
     float: left; 
     width: 28%;
-}
+} */
 
 #autoScoring_center {
     float: left; 

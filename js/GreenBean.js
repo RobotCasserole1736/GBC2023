@@ -6,7 +6,9 @@
 window.onload=function(){updateData()};
 
 var Score_Stack = new Array();
-Score_Stack['autonomous'] = new Array();
+Score_Stack['autonomous_coneUpper'] = new Array();
+Score_Stack['autonomous_coneMiddle'] = new Array();
+Score_Stack['autonomous_coneLower'] = new Array();
 Score_Stack['teleop'] = new Array();
 
 var unsubmittedData = new Array();
