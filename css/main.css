@@ -7,31 +7,34 @@
     margin-top: 15px;
 }
 
-#autoScoring_leftGrid_coneUpperLeft {
-    position: absolute;
-    left: 55pt;
-    top: 100pt;
-    fill-opacity: 0;
-    transform: scale(2.5);
-    height: 20px;
-    width: 22px;
-    /* background-color: #ffff33; */
-    background: #ffff33;
+#autoScoring_coneUpper {
+    float: left; 
+    width: 150%;
 }
 
-/* #autoScoring_left {
+#autoScoring_coneMiddle {
     float: left; 
-    width: 28%;
-} */
-
-#autoScoring_center {
-    float: left; 
-    width: 28%;
+    width: 150%;
 }
 
-#autoScoring_right {
+#autoScoring_coneLower {
     float: left; 
-    width: 28%;
+    width: 150%;
+}
+
+#autoScoring_cubeUpper {
+    float: left; 
+    width: 150%;
+}
+
+#autoScoring_cubeMiddle {
+    float: left; 
+    width: 150%;
+}
+
+#autoScoring_cubeLower {
+    float: left; 
+    width: 150%;
 }
 
 #reminderToSwitchToTeleop {

@@ -34,9 +34,15 @@ function AutoFormInit(){
     addElList("autoScoring_cubeMiddle",PC2Bar("Autonomous","Middle Cube Goal"))
     addElList("autoScoring_cubeLower",PC2Bar("Autonomous","Lower Cube Goal"))
 
+    // Game Pieces Dropped
+    addElList("autoGamePiecesDropped",oopsies("Autonomous","Game Pieces Dropped"))
+
+    // Failed Scoring Attempts
+    addElList("autoFailScore",oopsies("Autonomous","Failed Score Attempt"))
+
     // Tarmac Check Box
-    addElList("autoScoring_leftTarmac",title("Tarmac"))
-    addElList("autoScoring_leftTarmac",tarmacCheckBox("Left Tarmac: ","leftTarmac"))
+    addElList("autoScoring_leftCommunity",title("Community"))
+    addElList("autoScoring_leftCommunity",tarmacCheckBox("Left Community: ","leftCommunity"))
 
     // Undo Score Button
     addElList("autonomousScoring_undo",button("undoScore('autonomous');","Undo Score"))
@@ -84,10 +90,27 @@ function PC2Bar(period,type){
         TD.innerHTML="<button onclick=\"pcScore('"+period.toLowerCase()+"', '"+type.toLowerCase()+"', "+i+");\">Score</button>"
         TR.appendChild(TD)
     }
-    txt=document.createTextNode("Cargo Scored in "+type+": ")
+    txt=document.createTextNode(type+": ")
     id=type.split(' ').join('')+"Count"+period+"Display"
     A=createInnerHtmlReader(id,period.toLowerCase(),type.toLowerCase())
     return [Title,TR,txt,A,BR]
+}
+
+// Function: oopsies
+// Parameters: period, type
+// Description: Button to count mistakes made by team
+function oopsies(period,type){
+    Title=document.createElement("H3")
+    Title.innerHTML=type
+    TR=document.createElement("TR")
+    for(let i=1; i<2; i++){
+        TD=document.createElement("TD")
+        TD.innerHTML="<button onclick=\"pcScore('"+period.toLowerCase()+"', '"+type.toLowerCase()+"', "+i+");\">Count</button>"
+        TR.appendChild(TD)
+    }
+    id=type.split(' ').join('')+"Count"+period+"Display"
+    A=createInnerHtmlReader(id,period.toLowerCase(),type.toLowerCase())
+    return [Title,TR,A,BR]
 }
 
 function checkBox(TitleIn, id){
@@ -195,8 +218,7 @@ function resetForm(){
     updateData()
 }
 
-function saveData()
-{
+function saveData(){
 	var matchData = defaultSaveP1();
 
     // Buttons
@@ -224,8 +246,7 @@ function saveData()
 	//serverSubmit(matchData); Skip server
 }
 
-function savePitData()
-{
+function savePitData(){
 	var matchData = (new Date()).toISOString()+",";
 	matchData += dataSanitize(document.getElementById("scoutName").value) + ",";
 	matchData += dataSanitize(document.getElementById("teamNumber").value) + ",";
@@ -240,7 +261,7 @@ function savePitData()
     uploadRobotPhoto();
 }
 
-function uploadRobotPhoto() {
+function uploadRobotPhoto(){
 
     var files = document.getElementById("robotPhoto").files;
  
@@ -257,7 +278,6 @@ function uploadRobotPhoto() {
        // call on request changes state
        xhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
- 
             var response = this.responseText;
             if(response == 1){
                alert("Upload successfully.");
@@ -266,13 +286,10 @@ function uploadRobotPhoto() {
             }
           }
        };
- 
        // Send request with data
        xhttp.send(formData);
-    }
- 
- }
-
+    } 
+}
 
 //makeCode();
 function addQRRow(text){
