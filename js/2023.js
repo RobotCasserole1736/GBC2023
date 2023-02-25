@@ -22,14 +22,31 @@ function common(){
     initializeQRTable()
 }
 
+
 function AutoFormInit(){
     addElList("autoScoring_leftGrid_coneUpperLeft",checkBox("","autonomous_leftGrid_coneUpperLeft"))
-    addElList("autoScoring_coneMiddle",checkBox("","autonomous_leftGrid_coneMiddleLeft"))
-    addElList("autoScoring_coneLower",checkBox("","autonomous_leftGrid_coneLowerLeft"))
-    addElList("autoScoring_coneLower",checkBox("","autonomous_leftGrid_coneLower"))
+    // addElList("autoScoring_coneMiddle",checkBox("","autonomous_leftGrid_coneMiddleLeft"))
+    // addElList("autoScoring_coneLower",checkBox("","autonomous_leftGrid_coneLowerLeft"))
+    // addElList("autoScoring_coneLower",checkBox("","autonomous_leftGrid_coneLower"))
     // addElList("autoScoring",button("undoScore('autonomous');","Undo Score"))
-    addElList("autoScoring_inCommunity",title("Community"))
-    addElList("autoScoring_inCommunity",tarmacCheckBox("Stayed in Community: ","leftTarmac"))
+    // addElList("autoScoring_inCommunity",title("Community"))
+    //addElList("autoScoring_inCommunity",tarmacCheckBox("Stayed in Community: ","leftTarmac"))
+
+    
+        // "name": "Auto Scoring",
+          //"code": "asg",
+          //"gsCol": "autoScoringGrid",
+          //"type": "clickable_image",
+          //"filename": "images/grid_image.png",
+          //"dimensions": "9 4",
+          //"clickRestriction": "onePerBox",
+          //"toggleClick": "true",
+          //"showFlip": "false",
+          //"showUndo": "false",
+          //"shape": "circle 12 black red true"
+
+    
+
 }
 
 function TeleFormInit(){
