@@ -14,6 +14,8 @@ let drivetrainTypeText = ["Swerve", "West Coast", "Mecanum", "Other",];
 let bumperQualityText = ["Low", "Medium", "High",];
 let generalSizeText = ["Standard", "Small",];
 let overallQualityText = ["Low", "Medium", "High",];
+let balanceOptionsText = ["Neither","Docked","Docked & Engaged"];
+let balanceCoopOptionsText = ["Not Balanced","Solo","Duo","Trio",];
 
 function common(){
     AutoFormInit()
@@ -24,37 +26,69 @@ function common(){
 }
 
 function AutoFormInit(){
-    // Cone Goals
-    addElList("autoScoring_coneUpper",PC2Bar("Autonomous","Upper Cone Goal"))
-    addElList("autoScoring_coneMiddle",PC2Bar("Autonomous","Middle Cone Goal"))
-    addElList("autoScoring_coneLower",PC2Bar("Autonomous","Lower Cone Goal"))
+     // Cone Goals
+     addElList("autoScoring_coneUpper",PC2Bar("Autonomous","Upper Cone Goal"))
+     addElList("autoScoring_coneMiddle",PC2Bar("Autonomous","Middle Cone Goal"))
+     addElList("autoScoring_coneLower",PC2Bar("Autonomous","Lower Cone Goal"))
 
-    // Cube Goals
-    addElList("autoScoring_cubeUpper",PC2Bar("Autonomous","Upper Cube Goal"))
-    addElList("autoScoring_cubeMiddle",PC2Bar("Autonomous","Middle Cube Goal"))
-    addElList("autoScoring_cubeLower",PC2Bar("Autonomous","Lower Cube Goal"))
+     // Cube Goals
+     addElList("autoScoring_cubeUpper",PC2Bar("Autonomous","Upper Cube Goal"))
+     addElList("autoScoring_cubeMiddle",PC2Bar("Autonomous","Middle Cube Goal"))
+     addElList("autoScoring_cubeLower",PC2Bar("Autonomous","Lower Cube Goal"))
 
-    // Game Pieces Dropped
-    addElList("autoGamePiecesDropped",oopsies("Autonomous","Game Pieces Dropped"))
+     // Game Pieces Dropped
+     addElList("autoGamePiecesDropped",oopsies("Autonomous","Game Pieces Dropped"))
 
-    // Failed Scoring Attempts
-    addElList("autoFailScore",oopsies("Autonomous","Failed Score Attempt"))
+     // Failed Scoring Attempts
+     addElList("autoFailScore",oopsies("Autonomous","Failed Score Attempt"))
 
-    // Tarmac Check Box
-    addElList("autoScoring_leftCommunity",title("Community"))
-    addElList("autoScoring_leftCommunity",tarmacCheckBox("Left Community: ","leftCommunity"))
+     // Tarmac Check Box
+     addElList("autoScoring_leftCommunity",title("Community"))
+     addElList("autoScoring_leftCommunity",tarmacCheckBox("Left Community: ","leftCommunity"))
 
-    // Undo Score Button
-    addElList("autonomousScoring_undo",button("undoScore('autonomous');","Undo Score"))
+     // Docked and or engaged drop-down
+     addElList("autoScoring_dockedAndOrEngaged",multipleChoice("Docked And/Or Engaged:","dockedAndOrEngaged",balanceOptionsText, false))
+
+     // Docked and or engaged drop-down
+     addElList("autoScoring_dockedCoop",multipleChoice("Docked Coop:","dockedCoop",balanceCoopOptionsText, false))
+
+     // Undo Score Button
+     addElList("autonomousScoring_undo",button("undoScore('autonomous');","Undo Score")) 
 }
 
 function TeleFormInit(){
-    addElList("teleopScoring_left",PC2Bar("Teleop","Upper Goal"))
+    /*addElList("teleopScoring_left",PC2Bar("Teleop","Upper Goal"))
     addElList("teleopScoring_left",[BR])
     addElList("teleopScoring_left",button("undoScore('teleop');","Undo Score"))
     addElList("teleopScoring_center",PC2Bar("Teleop","Lower Goal"))
     addElList("teleopScoring_right",multipleChoice("Climbing:","climbPos",climbText, false))
-    addElList("teleopScoring_right",checkBox("Group Climber: ","groupClimbing"))
+    addElList("teleopScoring_right",checkBox("Group Climber: ","groupClimbing"))*/
+    // Cone Goals
+    addElList("teleopScoring_coneUpper",PC2Bar("Teleop","Upper Cone Goal"))
+    addElList("teleopScoring_coneMiddle",PC2Bar("Teleop","Middle Cone Goal"))
+    addElList("teleopScoring_coneLower",PC2Bar("Teleop","Lower Cone Goal"))
+
+    //cube goals
+    addElList("teleopScoring_cubeUpper",PC2Bar("Teleop","Upper Cube Goal"))
+    addElList("teleopScoring_cubeMiddle",PC2Bar("Teleop","Middle Cube Goal"))
+    addElList("teleopScoring_cubeLower",PC2Bar("Teleop","Lower Cube Goal"))
+
+     // Game Pieces Dropped
+     addElList("teleopGamePiecesDropped",oopsies("Teleop","Game Pieces Dropped"))
+
+     // Failed Scoring Attempts
+     addElList("teleopFailScore",oopsies("Teleop","Failed Score Attempt"))
+
+     // Docked and or engaged drop-down
+     addElList("teleopScoring_dockedAndOrEngaged",multipleChoice("Docked And/Or Engaged:","dockedAndOrEngaged",balanceOptionsText, false))
+
+     // Docked and or engaged drop-down
+     addElList("teleopScoring_dockedCoop",multipleChoice("Docked Coop:","dockedCoop",balanceCoopOptionsText, false))
+
+     // Undo Score Button
+     addElList("teleopScoring_undo",button("undoScore('teleop');","Undo Score")) 
+
+
 }
 
 function PostMatchFormInit(){
