@@ -265,8 +265,8 @@ function saveData(){
     for(let i=0; i<multipleChoiceList.length;i++){
         matchData+=document.getElementById(multipleChoiceList[i]).value+",";
     }
+    matchData += "\"" + dataSanitize(document.getElementById("comments").value)+ "\"" +",";
     addQRRow(matchData+"\n");
-    matchData += dataSanitize(document.getElementById("comments").value)+",";
     matchData +="\n";  // add a single newline at the end of the data
 
 	var existingData = localStorage.getItem("MatchData");
