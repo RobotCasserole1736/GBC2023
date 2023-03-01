@@ -94,11 +94,9 @@ function TeleFormInit(){
 function PostMatchFormInit(){
     addElList("yearly_Code",multipleChoice("Driver Rating:","driverRatingDisplay",driverRatingText, false))
     addElList("yearly_Code",multipleChoice("Defense Rating:","defenseReview",defenseRatingText, false))
-    addElList("yearly_Code",checkBox("Can Intake from Terminal: ","terminalLoading"))
+    addElList("yearly_Code",checkBox("Can Intake from Shelf: ","terminalLoading"))
     addElList("yearly_Code",checkBox("Can Intake from Ground: ","intakeGround"))
     addElList("yearly_Code",checkBox("Penalty Prone: ","penaltyProne"))
-    addElList("yearly_Code",checkBox("Far Shooting: ","farShooting"))
-    addElList("yearly_Code",checkBox("Close Shooting: ","closeShooting"))
 }
 
 function PitScoutingFormInit(){
