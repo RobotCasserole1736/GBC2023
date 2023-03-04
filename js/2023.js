@@ -26,16 +26,22 @@ function common(){
 }
 
 function AutoFormInit(){
-     // Cone Goals
+     // Cone Goals (n is cone b is cube )
      addElList("autoScoring_coneUpper",PC2Bar("Autonomous","Top Cone"))
      addElList("autoScoring_coneMiddle",PC2Bar("Autonomous","Mid Cone"))
      addElList("autoScoring_coneLower",PC2Bar("Autonomous","Low Cone"))
-     
+     addElList("autonomousScoring_subOneNT",button("pcScore('autonomous', 'top cone', -1);","-1")) 
+     addElList("autonomousScoring_subOneNM",button("pcScore('autonomous', 'mid cone', -1);","-1")) 
+     addElList("autonomousScoring_subOneNL",button("pcScore('autonomous', 'low cone', -1);","-1"))
 
      // Cube Goals
      addElList("autoScoring_cubeUpper",PC2Bar("Autonomous","Top Cube"))
      addElList("autoScoring_cubeMiddle",PC2Bar("Autonomous","Mid Cube"))
      addElList("autoScoring_cubeLower",PC2Bar("Autonomous","Low Cube"))
+     addElList("autonomousScoring_subOneBT",button("pcScore('autonomous', 'top cube', -1);","-1")) 
+     addElList("autonomousScoring_subOneBM",button("pcScore('autonomous', 'mid cube', -1);","-1")) 
+     addElList("autonomousScoring_subOneBL",button("pcScore('autonomous', 'low cube', -1);","-1"))
+
 
      // Game Pieces Dropped
      addElList("autoGamePiecesDropped",oopsies("Autonomous","Game Pieces Dropped"))
@@ -55,7 +61,7 @@ function AutoFormInit(){
 
      // Undo Score Button
      addElList("autonomousScoring_undo",button("undoScore('autonomous');","Undo Score")) 
-     addElList("autonomousScoring_subOne",button("pcScore('autonomous', 'top cube', -1);","Sub one")) 
+     
 }
 
 function TeleFormInit(){
@@ -66,14 +72,20 @@ function TeleFormInit(){
     addElList("teleopScoring_right",multipleChoice("Climbing:","climbPos",climbText, false))
     addElList("teleopScoring_right",checkBox("Group Climber: ","groupClimbing"))*/
     // Cone Goals
-    addElList("teleopScoring_coneUpper",PC2Bar("Teleop","Upper Cone Goal"))
-    addElList("teleopScoring_coneMiddle",PC2Bar("Teleop","Middle Cone Goal"))
-    addElList("teleopScoring_coneLower",PC2Bar("Teleop","Lower Cone Goal"))
+    addElList("teleopScoring_coneUpper",PC2Bar("Teleop","Top Cone"))
+    addElList("teleopScoring_coneMiddle",PC2Bar("Teleop","Mid Cone"))
+    addElList("teleopScoring_coneLower",PC2Bar("Teleop","Low Cone"))
+    addElList("teleopScoring_subOneNT",button("pcScore('teleop', 'top cone', -1);","-1")) 
+    addElList("teleopScoring_subOneNM",button("pcScore('teleop', 'mid cone', -1);","-1")) 
+    addElList("teleopScoring_subOneNL",button("pcScore('teleop', 'low cone', -1);","-1"))
 
     //cube goals
-    addElList("teleopScoring_cubeUpper",PC2Bar("Teleop","Upper Cube Goal"))
-    addElList("teleopScoring_cubeMiddle",PC2Bar("Teleop","Middle Cube Goal"))
-    addElList("teleopScoring_cubeLower",PC2Bar("Teleop","Lower Cube Goal"))
+    addElList("teleopScoring_cubeUpper",PC2Bar("Teleop","Top Cube"))
+    addElList("teleopScoring_cubeMiddle",PC2Bar("Teleop","Mid Cube"))
+    addElList("teleopScoring_cubeLower",PC2Bar("Teleop","Low Cube"))
+    addElList("teleopScoring_subOneBT",button("pcScore('teleop', 'top cube', -1);","-1")) 
+    addElList("teleopScoring_subOneBM",button("pcScore('teleop', 'mid cube', -1);","-1")) 
+    addElList("teleopScoring_subOneBL",button("pcScore('teleop', 'low cube', -1);","-1"))
 
      // Game Pieces Dropped
      addElList("teleopGamePiecesDropped",oopsies("Teleop","Game Pieces Dropped"))
@@ -99,7 +111,9 @@ function PostMatchFormInit(){
     addElList("yearly_Code",multipleChoice("Defense Rating:","defenseReview",defenseRatingText, false))
     addElList("yearly_Code",checkBox("Can Intake from Shelf: ","terminalLoading"))
     addElList("yearly_Code",checkBox("Can Intake from Ground: ","intakeGround"))
+    addElList("yearly_Code",checkBox("Can Intake from Single Substation Portal: ","intakeSSP"))
     addElList("yearly_Code",checkBox("Penalty Prone: ","penaltyProne"))
+    addElList("yearly_Code",checkBox("Inhibits Alliance Partners In Loading Zone: ","IAPILZ"))
 }
 
 function PitScoutingFormInit(){
@@ -117,12 +131,12 @@ function addElList(id,elList){
 }
 
 function PC2Bar(period,type){
-    Title=document.createElement("H3")
-    Title.innerHTML=type
+    Title= document.createElement("H3")
+    Title.innerHTML= "---"//type 
     TR=document.createElement("TR")
     for(let i=1; i<2; i++){
         TD=document.createElement("TD")
-        TD.innerHTML="<button onclick=\"pcScore('"+period.toLowerCase()+"', '"+type.toLowerCase()+"', "+i+");\">Score</button>"
+        TD.innerHTML="<button onclick=\"pcScore('"+period.toLowerCase()+"', '"+type.toLowerCase()+"', "+i+");\">+1</button>"
         TR.appendChild(TD)
     }
     txt=document.createTextNode(type+": ")
