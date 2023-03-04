@@ -27,14 +27,15 @@ function common(){
 
 function AutoFormInit(){
      // Cone Goals
-     addElList("autoScoring_coneUpper",PC2Bar("Autonomous","Upper Cone Goal"))
-     addElList("autoScoring_coneMiddle",PC2Bar("Autonomous","Middle Cone Goal"))
-     addElList("autoScoring_coneLower",PC2Bar("Autonomous","Lower Cone Goal"))
+     addElList("autoScoring_coneUpper",PC2Bar("Autonomous","Top Cone"))
+     addElList("autoScoring_coneMiddle",PC2Bar("Autonomous","Mid Cone"))
+     addElList("autoScoring_coneLower",PC2Bar("Autonomous","Low Cone"))
+     
 
      // Cube Goals
-     addElList("autoScoring_cubeUpper",PC2Bar("Autonomous","Upper Cube Goal"))
-     addElList("autoScoring_cubeMiddle",PC2Bar("Autonomous","Middle Cube Goal"))
-     addElList("autoScoring_cubeLower",PC2Bar("Autonomous","Lower Cube Goal"))
+     addElList("autoScoring_cubeUpper",PC2Bar("Autonomous","Top Cube"))
+     addElList("autoScoring_cubeMiddle",PC2Bar("Autonomous","Mid Cube"))
+     addElList("autoScoring_cubeLower",PC2Bar("Autonomous","Low Cube"))
 
      // Game Pieces Dropped
      addElList("autoGamePiecesDropped",oopsies("Autonomous","Game Pieces Dropped"))
@@ -54,6 +55,7 @@ function AutoFormInit(){
 
      // Undo Score Button
      addElList("autonomousScoring_undo",button("undoScore('autonomous');","Undo Score")) 
+     addElList("autonomousScoring_subOne",button("pcScore('autonomous', 'top cube', -1);","Sub one")) 
 }
 
 function TeleFormInit(){
@@ -87,6 +89,7 @@ function TeleFormInit(){
 
      // Undo Score Button
      addElList("teleopScoring_undo",button("undoScore('teleop');","Undo Score")) 
+
 
 
 }
