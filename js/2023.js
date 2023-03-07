@@ -54,10 +54,10 @@ function AutoFormInit(){
      addElList("autoScoring_leftCommunity",tarmacCheckBox("Left Community: ","leftCommunity"))
 
      // Docked and or engaged drop-down
-     addElList("autoScoring_dockedAndOrEngaged",multipleChoice("Docked And/Or Engaged:","dockedAndOrEngaged",balanceOptionsText, false))
+     addElList("autoScoring_dockedAndOrEngaged",multipleChoice("Docked And/Or Engaged:","dockedAndOrEngagedA",balanceOptionsText, false))
 
      // Docked and or engaged drop-down
-     addElList("autoScoring_dockedCoop",multipleChoice("Docked Coop:","dockedCoop",balanceCoopOptionsText, false))
+     addElList("autoScoring_dockedCoop",multipleChoice("Docked Coop:","dockedCoopA",balanceCoopOptionsText, false))
 
      // Undo Score Button
      addElList("autonomousScoring_undo",button("undoScore('autonomous');","Undo Score")) 
