@@ -6,16 +6,18 @@ let checkBoxList=[]
 let multipleChoiceList=[]
 let pitMultipleChoiceList=[]
 
-
+// The following lists are the options for each drop-down menu.
 let climbText=["None","Low","Mid","High","Traversal"]
 let driverRatingText = ["Doesn't Drive","Inefficient Driving", "Acceptable Driving", "Drives Well",];
 let defenseRatingText = ["Didn't Defend","Hinders Allies; Inefficient Defense","Does not Hinder Allies; Inefficient Defense","Does not Hinder Allies; Great Defense"]
 let drivetrainTypeText = ["Swerve", "West Coast", "Mecanum", "Other",];
 let bumperQualityText = ["Low", "Medium", "High",];
 let generalSizeText = ["Standard", "Small",];
-let overallQualityText = ["Low", "Medium", "High",];
+let overallQualityText = ["Low", "Medium", "High",]; 
 let balanceOptionsText = ["Neither","Docked","Docked & Engaged"];
 let balanceCoopOptionsText = ["Not Balanced","Solo","Duo","Trio",];
+let PickUpText = ["Nothing","Cone","Cube","Both",];
+let startPosOptions = ["Loading Zone","Charging Station","Corner/Cable"];
 
 function common(){
     AutoFormInit()
@@ -26,6 +28,8 @@ function common(){
 }
 
 function AutoFormInit(){
+    addElList("startPos",multipleChoice("Start pos:","startPos",startPosOptions, false))
+
      // Cone Goals (n is cone b is cube )
      addElList("autoScoring_coneUpper",PC2Bar("Autonomous","Top Cone"))
      addElList("autoScoring_coneMiddle",PC2Bar("Autonomous","Mid Cone"))
@@ -109,8 +113,9 @@ function TeleFormInit(){
 function PostMatchFormInit(){
     addElList("yearly_Code",multipleChoice("Driver Rating:","driverRatingDisplay",driverRatingText, false))
     addElList("yearly_Code",multipleChoice("Defense Rating:","defenseReview",defenseRatingText, false))
+    addElList("yearly_Code",multipleChoice("Can Intake From Ground:","canPickUpGround",PickUpText, false))
+    addElList("yearly_Code",multipleChoice("Can Intake From Shelf:","canPickUpShelf",PickUpText, false))
     addElList("yearly_Code",checkBox("Can Intake from Shelf: ","terminalLoading"))
-    addElList("yearly_Code",checkBox("Can Intake from Ground: ","intakeGround"))
     addElList("yearly_Code",checkBox("Can Intake from Single Substation Portal: ","intakeSSP"))
     addElList("yearly_Code",checkBox("Penalty Prone: ","penaltyProne"))
     addElList("yearly_Code",checkBox("Inhibits Alliance Partners In Loading Zone: ","IAPILZ"))
