@@ -115,8 +115,8 @@ function PostMatchFormInit(){
     addElList("yearly_Code",multipleChoice("Defense Rating:","defenseReview",defenseRatingText, false))
     addElList("yearly_Code",multipleChoice("Can Intake From Ground:","canPickUpGround",PickUpText, false))
     addElList("yearly_Code",multipleChoice("Can Intake From Shelf:","canPickUpShelf",PickUpText, false))
-    addElList("yearly_Code",checkBox("Can Intake from Shelf: ","terminalLoading"))
-    addElList("yearly_Code",checkBox("Can Intake from Single Substation Portal: ","intakeSSP"))
+
+
     addElList("yearly_Code",checkBox("Penalty Prone: ","penaltyProne"))
     addElList("yearly_Code",checkBox("Inhibits Alliance Partners In Loading Zone: ","IAPILZ"))
 }
