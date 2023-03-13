@@ -17,7 +17,7 @@ let overallQualityText = ["Low", "Medium", "High",];
 let balanceOptionsText = ["Neither","Docked","Docked & Engaged"];
 let balanceCoopOptionsText = ["Not Balanced","Solo","Duo","Trio",];
 let PickUpText = ["Nothing","Cone","Cube","Both",];
-let startPosOptions = ["Loading Zone","Charging Station","Corner/Cable"];
+let startPosText = ["Loading Zone","Charging Station","Corner/Cable",];
 
 function common(){
     AutoFormInit()
@@ -28,7 +28,7 @@ function common(){
 }
 
 function AutoFormInit(){
-    addElList("startPos",multipleChoice("Start pos:","startPos",startPosOptions, false))
+    
 
      // Cone Goals (n is cone b is cube )
      addElList("autoScoring_coneUpper",PC2Bar("Autonomous","Top Cone"))
@@ -46,6 +46,8 @@ function AutoFormInit(){
      addElList("autonomousScoring_subOneBM",button("pcScore('autonomous', 'mid cube', -1);","-1")) 
      addElList("autonomousScoring_subOneBL",button("pcScore('autonomous', 'low cube', -1);","-1"))
 
+     // Start position drop-down menu
+     addElList("auto_startPos",multipleChoice("Start pos:","startPos",startPosText, false))
 
      // Game Pieces Dropped
      addElList("autoGamePiecesDropped",oopsies("Autonomous","Game Pieces Dropped"))
@@ -58,10 +60,10 @@ function AutoFormInit(){
      addElList("autoScoring_leftCommunity",tarmacCheckBox("Left Community: ","leftCommunity"))
 
      // Docked and or engaged drop-down
-     addElList("autoScoring_dockedAndOrEngaged",multipleChoice("Docked And/Or Engaged:","dockedAndOrEngagedA",balanceOptionsText, false))
+     addElList("autoScoring_dockedAndOrEngagedA",multipleChoice("Docked And/Or Engaged:","dockedAndOrEngagedA",balanceOptionsText, false))
 
      // Docked and or engaged drop-down
-     addElList("autoScoring_dockedCoop",multipleChoice("Docked Coop:","dockedCoopA",balanceCoopOptionsText, false))
+     addElList("autoScoring_dockedCoopA",multipleChoice("Docked Coop:","dockedCoopA",balanceCoopOptionsText, false))
 
      // Undo Score Button
      addElList("autonomousScoring_undo",button("undoScore('autonomous');","Undo Score")) 
@@ -98,10 +100,10 @@ function TeleFormInit(){
      addElList("teleopFailScore",oopsies("Teleop","Failed Score Attempt"))
 
      // Docked and or engaged drop-down
-     addElList("teleopScoring_dockedAndOrEngaged",multipleChoice("Docked And/Or Engaged:","dockedAndOrEngaged",balanceOptionsText, false))
+     addElList("teleopScoring_dockedAndOrEngagedT",multipleChoice("Docked And/Or Engaged:","dockedAndOrEngaged",balanceOptionsText, false))
 
      // Docked and or engaged drop-down
-     addElList("teleopScoring_dockedCoop",multipleChoice("Docked Coop:","dockedCoop",balanceCoopOptionsText, false))
+     addElList("teleopScoring_dockedCoopT",multipleChoice("Docked Coop:","dockedCoop",balanceCoopOptionsText, false))
 
      // Undo Score Button
      addElList("teleopScoring_undo",button("undoScore('teleop');","Undo Score")) 
@@ -117,7 +119,7 @@ function PostMatchFormInit(){
     addElList("yearly_Code",multipleChoice("Can Intake From Shelf:","canPickUpShelf",PickUpText, false))
 
 
-    addElList("yearly_Code",checkBox("Penalty Prone: ","penaltyProne"))
+    addElList("yearly_Code",checkBox("Penalty Prone: ","penaltyProne",false))
     addElList("yearly_Code",checkBox("Inhibits Alliance Partners In Loading Zone: ","IAPILZ"))
 }
 
