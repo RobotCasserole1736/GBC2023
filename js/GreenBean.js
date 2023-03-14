@@ -30,7 +30,7 @@ function idScoutingStation() {
 
 	if(matchNum !=null && matchNum !=0 && matchType == "Qualification"){
 
-		lookUpTeam(matchNum, curScoutingStation);
+		// lookUpTeam(matchNum, curScoutingStation);
 
 	}
 }
@@ -51,7 +51,7 @@ function dataSanitize(text){
 
 
 function defaultReset(){
-	document.getElementById("teamNumber").value = "";
+	document.getElementById("teamNumber").value = ""; //parseInt(document.getElementById("teamNumber").value);
 	document.getElementById("matchNumber").value = parseInt(document.getElementById("matchNumber").value) + 1;
 	document.getElementById("comments").value = "";
 }
@@ -74,8 +74,8 @@ function submitReport(){
 }
 
 function submitPitReport(){
-	savePitData();
-	resetForm();
+	//savePitData();
+	//resetForm();
 }
 
 function clearHistory()
